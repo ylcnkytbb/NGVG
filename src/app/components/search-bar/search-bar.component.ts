@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,8 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
-
-  constructor( private router: Router) { }
+  searchForm; 
+  constructor(
+     private router: Router,
+     private formBuilder: FormBuilder,
+    ) {
+    this.searchForm = this.formBuilder.group({
+      search: '',
+    });
+   }
 
   ngOnInit(): void {
   }

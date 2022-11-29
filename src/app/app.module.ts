@@ -19,6 +19,10 @@ import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor'
 import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
 import { DetailsComponent } from './components/details/details.component';
 import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
+
 
 
 @NgModule({
@@ -27,7 +31,9 @@ import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
     SearchBarComponent,
     HomeComponent,
     DetailsComponent,
-    GameTabsComponent
+    GameTabsComponent,
+    FooterComponent,
+    SearchFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -39,8 +45,8 @@ import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
     MatTabsModule,
     MatIconModule,
     MatFormFieldModule,
-    MatSelectModule
-
+    MatSelectModule,
+    ReactiveFormsModule     
   ],
   providers: [
     {

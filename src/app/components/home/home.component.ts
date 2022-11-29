@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { APIResponse, Game } from 'src/app/models';
@@ -10,6 +11,7 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  searchForm; 
 
   public sort!: string; //quickfix(!)
   public games!: Array<Game>;
@@ -20,8 +22,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private httpService: HttpService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) { }
+    private activatedRoute: ActivatedRoute,
+    private formBuilder: FormBuilder,
+  ) { 
+    this.searchForm = this.formBuilder.group({
+      search: '',
+    });
+
+  }
 
   ngOnInit(): void {
     this.routeSub = this.activatedRoute.params
